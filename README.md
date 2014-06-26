@@ -49,6 +49,12 @@ So here's how you do it:
 What you end up with is a standard link with an on-mouseover popup containing a
 QR code.  Just point your phone, and tap "send" in whatever app you're using.
 
+
+## Working Demo
+
+This code has been wrestled into a [jsfiddle](http://jsfiddle.net/T5uSN/2/) to see how it works, but the implementation there (due to a lack of CDN for these files) is not ideal.  The best way to use this is laid out above.
+
+
 ## 3rd-party libraries
 
 Bitcoin-donate is licensed under the GPL3, but depends on two other Free
