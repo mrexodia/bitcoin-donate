@@ -3,7 +3,16 @@
  * Original source from: http://jqueryfordesigners.com/coda-popup-bubbles.1.html
  *
  */
-$(function(){
+var btcdonate = function(options){
+
+  if (!options) {
+    options = {}
+  }
+
+  var qr = {
+    fill:   options.fill   || "#f7931a",
+    radius: options.radius || 0.3
+  };
 
   // Wrap all links with href="bitcoin:..." so that we can operate on them
   $("a[href^=bitcoin]")
@@ -24,13 +33,13 @@ $(function(){
     var shown      = false;
 
     var trigger = $('.btcdonate-trigger', this).get(0);
-    var address = $(trigger).attr("href")
+    var address = $(trigger).attr("href");
 
     var $qr = $('<div class="btcdonate-address"></div>')
       .qrcode({
         size: 128,
-        fill: '#f7931a',
-        radius: 0.3,
+        fill: qr.fill,
+        radius: qr.radius,
         text: address,
         render: "image"
       }).html();
@@ -38,12 +47,12 @@ $(function(){
     var $bubble = $('<div class="btcdonate-bubble"></div>')
       .css("opacity", 0)
       .append($qr)
-      .append('<div class="btcdonate-address">' + address.replace("bitcoin:", "") + '</div>');
+      .append('<div class="btcdonate-address">' + address.replace("bitcoin:", "").replace(/\?.*/, "") + '</div>');
 
     $(this).append($bubble);
 
     var bubble_offset_vertical = ($bubble.height() + 25) * -1;
-    var bubble_offset_horizontal = $(trigger).width() / 2;
+    var bubble_offset_horizontal = (($bubble.width() - $(trigger).width()) / 2) * -1;
 
     // Set the mouseover and mouseout on both elements
     $([trigger, $bubble.get(0)]).mouseover(function () {
@@ -62,7 +71,7 @@ $(function(){
         $bubble
           .css({
             top: bubble_offset_vertical,
-            left: -35,
+            left: bubble_offset_horizontal,
             display: "block",
               position: "absolute"
           })
@@ -98,4 +107,5 @@ $(function(){
 
     });
   });
-});
+
+};
