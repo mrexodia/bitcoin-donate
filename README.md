@@ -2,6 +2,8 @@
 
 Add simple donate buttons to any website
 
+![A screenshot of the popover bubble](https://raw.githubusercontent.com/danielquinn/bitcoin-donate/master/screenshot.png "Screenshot")
+
 It seems like a simple thing, yet after a bunch of browsing through
 [/r/bitcoin](http://www.reddit.com/r/bitcoin) and basic web searches, I couldn't
 find anything like it: a quick and easy way to have a "gimme bitcoins" button on
