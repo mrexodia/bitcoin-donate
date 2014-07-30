@@ -10,7 +10,7 @@ var btcdonate = function(options){
   }
 
   var qr = {
-    fill:   options.fill   || "#f7931a",
+    fill:   options.fill   || "#000000",
     radius: options.radius || 0.3
   };
 
@@ -46,7 +46,7 @@ var btcdonate = function(options){
 
     var $bubble = $('<div class="btcdonate-bubble"></div>')
       .css("opacity", 0)
-      .append($qr)
+      .append('<div class="btcdonate-qr">' + $qr + '</div>')
       .append('<div class="btcdonate-address">' + address.replace("bitcoin:", "").replace(/\?.*/, "") + '</div>');
 
     $(this).append($bubble);
